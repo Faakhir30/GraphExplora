@@ -1,0 +1,7 @@
+.grid {
+  border:0 5px 5px 5px solid rgb(15, 140, 182);
+  max-width: 100vw !important;
+}
+.grid>*{
+  display: flex;
+}
