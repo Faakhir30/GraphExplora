@@ -14,8 +14,8 @@ export function aStar(grid, startNode, finishNode) {
 
       const sortValueA = distanceA + nodeA.distance;
       const sortValueB = distanceB + nodeB.distance;
-
-      // if (sortValueA === sortValueB) return distanceA - distanceB;
+      //tie-breaking for priority queue
+      if (sortValueA === sortValueB) return nodeA.distance-nodeB.distance;
 
       return sortValueA - sortValueB;
     });
