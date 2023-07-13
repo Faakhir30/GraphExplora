@@ -5,7 +5,7 @@ const Header = ({ visualizeAlgo, grid, setGrid }) => {
   const [Algo, setAlgo] = useState("");
   const [speed, setSpeed] = useState(100);
   function clearMaze() {
-    let newGrid = [...grid];
+    let newGrid = JSON.parse(JSON.stringify(grid));
     for (let Row of newGrid)
       for (let node of Row) {
         document.getElementById(`node-${node.row}-${node.col}`).className =
