@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import DropdownforHeader from "./Dropdown";
 
-const Header = ({ visualizeAlgo, grid, setGrid }) => {
+const Header = ({ visualizeAlgo, grid, setGrid, setAlgor }) => {
   const [Algo, setAlgo] = useState("");
   const [speed, setSpeed] = useState(100);
   function clearMaze() {
@@ -38,6 +38,7 @@ const Header = ({ visualizeAlgo, grid, setGrid }) => {
     initializer.innerText = "Visualize";
     initializer.className = "active-btn";
     setAlgo(name);
+    setAlgor(name)
   }
 
   const InitializeAlgo = async () => {

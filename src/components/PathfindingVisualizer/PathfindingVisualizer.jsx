@@ -8,6 +8,7 @@ import { aStar } from "../algorithms/a-star";
 import { getNodesInPathOrder } from "../algorithms/bactrace";
 import "./PathfindingVisualizer.css";
 import Header from "../Header";
+import Discription from "../Discription";
 
 const PathfindingVisualizer = ({ width, height }) => {
   const START_NODE_ROW = Math.floor((height * 0.9) / 50 - 2);
@@ -45,7 +46,7 @@ const PathfindingVisualizer = ({ width, height }) => {
 
   const [mouseIsPressed, setMouseIsPressed] = useState(false);
   const [activeImage, setActiveImage] = useState(null); // State to track the active image (paint or erase)
-
+  const [algorithm, setAlgorithm] = useState("");
   const handleMouseDown = (row, col) => {
     setMouseIsPressed(true);
     const node = grid[row][col];
@@ -84,7 +85,7 @@ const PathfindingVisualizer = ({ width, height }) => {
 
   const toggleActiveImage = (image) => {
     setActiveImage(image);
-  };  
+  };
 
   const visualizeAlgo = (name, speed) => {
     const algo = { dijkstra, bfs, dfs, gbfs, aStar };
@@ -123,7 +124,7 @@ const PathfindingVisualizer = ({ width, height }) => {
 
           i++;
 
-          setTimeout(animateNode, 380-speed); // call the next animation step
+          setTimeout(animateNode, 380 - speed); // call the next animation step
         }
       };
 
@@ -132,7 +133,7 @@ const PathfindingVisualizer = ({ width, height }) => {
   };
   return (
     <>
-      <Header visualizeAlgo={visualizeAlgo} grid={grid} setGrid={setGrid} />
+      <Header visualizeAlgo={visualizeAlgo} grid={grid} setGrid={setGrid} setAlgor={setAlgorithm}/>
       <div className="grid">
         {grid.map((row, rowIdx) => {
           return (
@@ -159,31 +160,34 @@ const PathfindingVisualizer = ({ width, height }) => {
         })}
       </div>
       <div className="image-overlay">
-        <div
-          className="image-container"
-          onClick={() => toggleActiveImage("paint")}
-        >
-          <img
-            src="paint.jpg"
-            alt="draw"
-            className={`overlay-image ${
-              activeImage === "paint" ? "active" : ""
-            }`}
-          />
-          <span className="image-label">Draw</span>
-        </div>
-        <div
-          className="image-container"
-          onClick={() => toggleActiveImage("erase")}
-        >
-          <img
-            src="rubber.jpg"
-            alt="erase"
-            className={`overlay-image ${
-              activeImage === "erase" ? "active" : ""
-            }`}
-          />
-          <span className="image-label">Erase</span>
+        <Discription algo={algorithm}/>
+        <div>
+          <div
+            className="image-container"
+            onClick={() => toggleActiveImage("paint")}
+          >
+            <img
+              src="paint.jpg"
+              alt="draw"
+              className={`overlay-image ${
+                activeImage === "paint" ? "active" : ""
+              }`}
+            />
+            <span className="image-label">Draw</span>
+          </div>
+          <div
+            className="image-container"
+            onClick={() => toggleActiveImage("erase")}
+          >
+            <img
+              src="rubber.jpg"
+              alt="erase"
+              className={`overlay-image ${
+                activeImage === "erase" ? "active" : ""
+              }`}
+            />
+            <span className="image-label">Erase</span>
+          </div>
         </div>
       </div>
     </>

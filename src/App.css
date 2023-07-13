@@ -94,11 +94,15 @@ button:not(#initializer, #clear):hover {
 .image-overlay {
   position: absolute;
   display: flex;
-  flex-direction: column;
   bottom: 0;
   right: 0;
 }
+.image-overlay>div{
+  display: flex;
+  flex-direction: column;
+  margin-left: 80px;
 
+}
 .overlay-image {
   margin: 0 2vw 2vh 0;
   width: 50px;
@@ -207,4 +211,21 @@ input[type="range"]::-webkit-slider-thumb{
   width: 10px;
   height: 10px;
 }
+}
+ .desc-btn{
+  width: 80vw;
+transform: translateY(12vh);
+}
+.desc {
+  width: 79vw;
+  max-height: calc(79vh - 10vh); /* Adjust the height calculation as needed */
+  transform: translateY(6vh);
+  overflow-y: auto;
+}
+.heading{
+  font-weight: bold;
+  margin-right: 5px;
+}
+.modal-close{
+  margin-top: 7px;
 }
