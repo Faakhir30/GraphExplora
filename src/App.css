@@ -211,10 +211,24 @@ input[type="range"]::-webkit-slider-thumb{
   width: 10px;
   height: 10px;
 }
+.desc,
+.desc-btn {
+  width: 60vw !important;
+}
+
+}
+
+@media (max-width:363px) {
+  .desc,
+.desc-btn {
+  width: 50vw !important;
+}
+
 }
  .desc-btn{
   width: 80vw;
 transform: translateY(12vh);
+margin-left: 2vw !important;
 }
 .desc {
   width: 79vw;
